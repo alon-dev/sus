@@ -1,29 +1,37 @@
 class Person:
     
+    
+    
     def __init__(self, id, name):
         if self.validId(id):
-            self.id=id
+            self.__id=id
         else:
             raise ValueError("ID NEEDS TO BE 8 DIGITS")
-        self.name = name
+        self.__name = name
+        
+    def __repr__(self):
+        return f"Name: {self.name}, Id: {self.id}"
     
-    def getId(self):
-        return self.id
+    @property    
+    def id(self):
+        return self.__id
+    @property
+    def name(self):
+        print("test")
+        return self.__name
     
-    def getName(self):
-        return self.name
-    
-    def setId(self, id):
+    @id.setter
+    def id(self, id):
         if self.validId(id):
-            self.id = id
+            self.__id = id
         else:
             raise ValueError("ID NEEDS TO BE 8 DIGITS")
-    
-    def setName(self, name):
-        self.name = name
+        
+    @name.setter
+    def name(self, name):
+        print("test")
+        self.__name = name
 
     @staticmethod  
     def validId(id):
-        return len(id) == 8
-    
-    """amogus"""
+        return len(str(id)) == 8
