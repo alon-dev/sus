@@ -1,7 +1,4 @@
 class Person:
-    
-    
-    
     def __init__(self, id, name):
         if self.validId(id):
             self.__id=id
@@ -17,7 +14,6 @@ class Person:
         return self.__id
     @property
     def name(self):
-        print("test")
         return self.__name
     
     @id.setter
@@ -29,7 +25,6 @@ class Person:
         
     @name.setter
     def name(self, name):
-        print("test")
         self.__name = name
 
     @staticmethod  
