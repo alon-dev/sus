@@ -1,25 +1,16 @@
-import Person
 
-class Student(Person.Person):
-    def __init__(self, id: int, name: str):
-        super().__init__(id, name)
-        self.__grades = []
+from Person import Person
 
-    @classmethod
-    def copy(cls, student):
-        """builds a new student object using another student object
-
-        Args:
-            student (Student): the student object to copy
-
-        Returns:
-            Student: a new student object
-        """
-        a = cls(student.id, student.name)
-        for grade in student.grades:
-            a.add_grade(grade)
-        return a
-    
+class Student(Person):
+    def __init__(self, id: int = None, name: str = None, student = None):
+        self.__grades = ()
+        if student == None and id is not None and name is not None:
+            super().__init__(id, name)
+        elif student is not None:
+            super().__init__(student.id, student.name)
+            self.__grades = student.grades
+        else:
+            raise ValueError("No Arguments Passed")
     @property
     def grades(self):
         return self.__grades
