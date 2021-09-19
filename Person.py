@@ -1,6 +1,6 @@
 class Person:
     def __init__(self, id, name):
-        self.__id = id
+        self.__name = name
         self.__id = id
         """Initializes a new Student object
 
@@ -9,7 +9,7 @@ class Person:
             name (str): student's name
         """
     def __repr__(self):
-        return f"Name: {self.name}, Id: {self.id}"
+        return f"Name: {self.__name}, Id: {self.__id}"
     
     @property    
     def id(self):

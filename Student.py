@@ -3,7 +3,17 @@ from Person import Person
 
 class Student(Person):
     def __init__(self, id: int = None, name: str = None, student = None):
-        self.__grades = ()
+        """Builds a new Student object.
+
+        Args:
+            id (int, optional): The student ID. Defaults to None.
+            name (str, optional): The student's name. Defaults to None.
+            student (Student, optional): A student object to copy from. Defaults to None.
+
+        Raises:
+            ValueError: When constructor is not used with proper args
+        """
+        self.__grades = []
         if student == None and id is not None and name is not None:
             super().__init__(id, name)
         elif student is not None:

@@ -20,4 +20,15 @@ def test():
     eli.add_grade(60)
     yael = Student(789, "yael")
     Michael = Teacher(111, "Michael", 30)
-    
+    Maria = Teacher(222,"Maria",25)
+    Micha = Teacher(333,"Micha",24)
+    Steve = Rakaz(888,"Steve",32)
+    Steve.reward = 7
+    person_list = [sage, limor, eli, yael, Michael, Maria, Micha, Steve]
+    BINA = Megama("BINA", person_list)
+    print(BINA)
+    person_list = [Micha, Steve]
+    CS = Megama("CS", person_list)
+    print(CS)
+
+test()

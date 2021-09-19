@@ -15,11 +15,20 @@ class Megama:
         """
         self.__mn = None
         self.__rakaz = None
-        self.__teacher_list = ()
-        self.__student_list = ()
+        self.__teacher_list = []
+        self.__student_list = []
         if mname is not None and people is None:
             self.__mn = mname
         elif mname is None and people is not None:
+            for person in people:
+                if type(person) == Rakaz:
+                    self.__rakaz = person
+                elif type(person) == Teacher:
+                    self.__teacher_list.append(person)
+                elif type(person) == Student:
+                    self.__student_list.append(person)
+        elif mname is not None and people is not None:
+            self.__mn = mname
             for person in people:
                 if type(person) == Rakaz:
                     self.__rakaz = person
@@ -75,11 +84,11 @@ class Megama:
         self.__student_list = student_list
     
     def __repr__(self):
-        ret = f"nm: {self.__nm}, rakaz: {self.__rakaz.__repr__()}\n"
+        ret = f"nm: {self.__mn}, rakaz: {self.__rakaz.__repr__()}\n"
         ret += "teacher list:\n"
         for i in self.__teacher_list:
             ret += i.__repr__() + "\n"
         ret += "student list:\n"
-        for i in self.___student_list:
+        for i in self.__student_list:
             ret += i.__repr__() + "\n"
         return ret
